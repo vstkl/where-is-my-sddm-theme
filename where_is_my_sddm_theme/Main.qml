@@ -25,7 +25,7 @@ Rectangle {
     property string helpFontSize: config.intValue("helpFontSize") || 18
     property string defaultFont: config.stringValue("font") || "monospace"
     property string helpFont: config.stringValue("helpFont") || defaultFont
-    property string helpVisible: config.stringValue("showHelp") || false
+    property bool helpVisible: config.boolValue("showHelp") || false
 
 
     function usersCycleSelectPrev() {
@@ -343,7 +343,7 @@ Rectangle {
 
         Text {
             id: helpMessage
-            visible: config.boolValue("helpVisible")
+            visible: helpVisible  // config.boolValue("showHelp")
             text: "Show help - F1\n" +
                   "Cycle select next user - F2 or Alt+u\n" +
                   "Cycle select previous user - Ctrl+F2 or Alt+Ctrl+u\n" +
